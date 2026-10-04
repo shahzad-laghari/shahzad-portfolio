@@ -56,9 +56,9 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const name = e.target.name.value
-    const email = e.target.email.value
-    const msg = e.target.message.value
+    const name = e.target.elements['name'].value
+    const email = e.target.elements['email'].value
+    const msg = e.target.elements['message'].value
     const mailto = `mailto:shahzadali.official6@gmail.com?subject=${encodeURIComponent(
       'Portfolio contact from ' + name,
     )}&body=${encodeURIComponent(msg + '\n\nFrom: ' + email)}`
@@ -115,7 +115,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.55 }}
-            className="bg-elevated border border-white/[0.07] rounded-2xl p-7 relative overflow-hidden"
+            className="bg-elevated border border-white/[0.07] rounded-2xl p-5 sm:p-7 relative overflow-hidden"
           >
             {/* Subtle top border gradient */}
             <div
@@ -124,13 +124,13 @@ export default function Contact() {
               aria-hidden="true"
             />
 
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center justify-between mb-5 sm:mb-6">
               <div>
-                <h3 className="text-white font-semibold text-lg">Send a Message</h3>
+                <h3 className="text-white font-semibold text-base sm:text-lg">Send a Message</h3>
                 <p className="text-white/35 text-xs mt-0.5 font-mono">Opens your email client</p>
               </div>
-              <div className="w-10 h-10 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center">
-                <Send size={16} className="text-accent" aria-hidden="true" />
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center">
+                <Send size={15} className="text-accent" aria-hidden="true" />
               </div>
             </div>
 

@@ -25,7 +25,7 @@ export default function BackToTop() {
           transition={{ duration: 0.25, ease: 'easeOut' }}
           onClick={scrollToTop}
           aria-label="Back to top"
-          className="fixed bottom-6 right-6 z-50 w-11 h-11 rounded-full bg-accent text-bg flex items-center justify-center shadow-glow-accent hover:brightness-110 hover:-translate-y-1 transition-all duration-200 group"
+          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-accent text-bg flex items-center justify-center shadow-glow-accent hover:brightness-110 hover:-translate-y-1 transition-all duration-200 group"
         >
           <motion.div
             animate={{ y: [0, -2, 0] }}

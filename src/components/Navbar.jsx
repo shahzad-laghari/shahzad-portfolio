@@ -35,10 +35,10 @@ export default function Navbar() {
     <header role="banner" className="fixed top-0 inset-x-0 z-50 pointer-events-none">
       <nav
         aria-label="Primary navigation"
-        className="pointer-events-auto max-w-[1200px] mx-auto px-4 sm:px-8 pt-3 sm:pt-5 transition-all duration-500"
+        className="pointer-events-auto max-w-[1200px] mx-auto px-3 sm:px-8 pt-2.5 sm:pt-5 transition-all duration-500"
       >
         <div
-          className={`mx-auto rounded-2xl transition-all duration-500 flex items-center justify-between px-5 py-3 ${
+          className={`mx-auto rounded-2xl transition-all duration-500 flex items-center justify-between px-3.5 sm:px-5 py-2.5 sm:py-3 ${
             scrolled
               ? 'bg-elevated/80 backdrop-blur-2xl border border-white/15 shadow-[0_8px_40px_rgba(0,0,0,0.6)]'
               : 'bg-elevated/40 backdrop-blur-md border border-white/[0.08]'
@@ -107,7 +107,7 @@ export default function Navbar() {
 
           {/* Mobile Toggle Button */}
           <button
-            className="md:hidden w-10 h-10 border border-white/15 rounded-xl flex items-center justify-center text-white/70 hover:text-white hover:border-white/30 bg-elevated2/80 transition-all"
+            className="md:hidden w-9 h-9 sm:w-10 sm:h-10 border border-white/15 rounded-xl flex items-center justify-center text-white/70 hover:text-white hover:border-white/30 bg-elevated2/80 transition-all flex-shrink-0"
             onClick={() => setOpen((o) => !o)}
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}

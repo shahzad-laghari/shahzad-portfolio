@@ -56,22 +56,22 @@ export default function Hero() {
     <>
       <section
         id="home"
-        className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-20 pb-16"
+        className="relative min-h-screen flex flex-col justify-start lg:justify-center pt-24 sm:pt-32 lg:pt-28 pb-16 lg:pb-24"
         aria-label="Hero section"
       >
         {/* ── Ambient background ────────────────────────────── */}
-        <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        <div className="pointer-events-none absolute inset-0" style={{ overflow: 'clip' }} aria-hidden="true">
           <div className="absolute inset-0 bg-grid" />
           <div
-            className="aurora-blob -top-32 -left-24 w-[520px] h-[520px]"
+            className="aurora-blob -top-32 -left-24 w-[320px] sm:w-[520px] h-[320px] sm:h-[520px]"
             style={{ background: 'radial-gradient(circle, #4FD1C5 0%, transparent 70%)' }}
           />
           <div
-            className="aurora-blob top-1/3 -right-32 w-[460px] h-[460px]"
+            className="aurora-blob top-1/3 -right-32 w-[300px] sm:w-[460px] h-[300px] sm:h-[460px]"
             style={{ background: 'radial-gradient(circle, #F5A623 0%, transparent 70%)', animationDelay: '-8s', opacity: 0.2 }}
           />
           <div
-            className="aurora-blob -bottom-40 left-1/3 w-[420px] h-[420px]"
+            className="aurora-blob -bottom-40 left-1/3 w-[280px] sm:w-[420px] h-[280px] sm:h-[420px]"
             style={{ background: 'radial-gradient(circle, #6366f1 0%, transparent 70%)', animationDelay: '-14s', opacity: 0.16 }}
           />
           <div
@@ -80,8 +80,8 @@ export default function Hero() {
           />
         </div>
 
-        <div className="relative max-w-[1200px] mx-auto px-5 sm:px-8 w-full">
-          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 xl:gap-20 items-center">
+        <div className="relative max-w-[1200px] mx-auto px-4 sm:px-8 w-full">
+          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 xl:gap-20 items-center">
 
             {/* ── Left: Text content ──────────────────────────── */}
             <div className="text-center lg:text-left">
@@ -92,7 +92,7 @@ export default function Hero() {
                 initial="hidden"
                 animate="show"
                 custom={0}
-                className="inline-flex flex-wrap items-center gap-x-2.5 gap-y-1 font-mono text-[0.72rem] text-white/40 mb-7 justify-center lg:justify-start"
+                className="inline-flex flex-wrap items-center gap-x-2 sm:gap-x-2.5 gap-y-1 font-mono text-[0.68rem] sm:text-[0.72rem] text-white/40 mb-5 sm:mb-7 justify-center lg:justify-start"
               >
                 <span className="text-accent font-medium">HTTP/1.1 200 OK</span>
                 <span className="text-white/15">·</span>
@@ -107,7 +107,7 @@ export default function Hero() {
                 initial="hidden"
                 animate="show"
                 custom={1}
-                className="font-display font-bold text-[clamp(2.2rem,5vw,3.6rem)] leading-[1.1] text-white mb-3"
+                className="font-display font-bold text-[clamp(2.1rem,5vw,3.6rem)] leading-[1.1] text-white mb-3"
               >
                 Hi, I&apos;m{' '}
                 <span className="text-gradient">Shahzad Ali</span>
@@ -119,7 +119,7 @@ export default function Hero() {
                 initial="hidden"
                 animate="show"
                 custom={2}
-                className="font-display text-[clamp(1.2rem,2.5vw,1.75rem)] text-white/40 mb-5 min-h-[1.4em] flex items-center justify-center lg:justify-start gap-2"
+                className="font-display text-[clamp(1.15rem,2.5vw,1.75rem)] text-white/40 mb-5 min-h-[1.4em] flex flex-wrap items-center justify-center lg:justify-start gap-x-2 gap-y-1"
               >
                 <span>I build</span>
                 <div className="relative overflow-hidden inline-flex">
@@ -218,7 +218,7 @@ export default function Hero() {
               initial="hidden"
               animate="show"
               custom={6}
-              className="mt-9 pt-7 border-t border-white/[0.07] grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0"
+              className="mt-8 sm:mt-9 pt-6 sm:pt-7 border-t border-white/[0.07] grid grid-cols-3 gap-2 sm:gap-4 max-w-md mx-auto lg:mx-0"
             >
               {[
                 { n: projects.length, s: '', label: 'Projects Built' },
@@ -226,10 +226,10 @@ export default function Hero() {
                 { n: 1, s: '+', label: 'Year Experience' },
               ].map(({ n, s: suf, label }) => (
                 <div key={label} className="text-center lg:text-left">
-                  <div className="font-display font-bold text-2xl sm:text-3xl text-gradient">
+                  <div className="font-display font-bold text-xl sm:text-2xl md:text-3xl text-gradient">
                     <Counter to={n} suffix={suf} />
                   </div>
-                  <div className="font-mono text-[0.62rem] uppercase tracking-wider text-white/35 mt-1">{label}</div>
+                  <div className="font-mono text-[0.6rem] sm:text-[0.62rem] uppercase tracking-wider text-white/35 mt-1">{label}</div>
                 </div>
               ))}
             </motion.div>
@@ -240,7 +240,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="flex flex-col items-center gap-6"
+            className="flex flex-col items-center gap-6 mt-4 lg:mt-0"
           >
             {/* Profile image with animated ring */}
             <div className="relative">
@@ -258,7 +258,7 @@ export default function Hero() {
               <div className="absolute inset-[-10px] rounded-full bg-bg" style={{ mask: 'radial-gradient(transparent 48%, black 52%)' }} aria-hidden="true" />
 
               {/* Orbiting tech chips */}
-              <div className="hidden sm:block absolute inset-[-46px] animate-orbit pointer-events-none" aria-hidden="true">
+              <div className="hidden md:block absolute inset-[-42px] lg:inset-[-46px] animate-orbit pointer-events-none" aria-hidden="true">
                 {[
                   { t: 'Java', pos: 'top-0 left-1/2 -translate-x-1/2 -translate-y-1/2', c: 'text-[#EA2D2E]' },
                   { t: 'React', pos: 'top-1/2 right-0 translate-x-1/2 -translate-y-1/2', c: 'text-[#61DAFB]' },
@@ -278,7 +278,7 @@ export default function Hero() {
 
               {/* Image container */}
               <div
-                className="relative w-[230px] h-[230px] sm:w-[260px] sm:h-[260px] rounded-full p-[3px]"
+                className="relative w-[210px] h-[210px] sm:w-[260px] sm:h-[260px] rounded-full p-[3px]"
                 style={{
                   background: 'linear-gradient(145deg, rgba(79,209,197,0.5), rgba(245,166,35,0.3))',
                 }}
@@ -345,7 +345,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.8, duration: 0.6 }}
-          className="absolute bottom-[-2rem] left-1/2 -translate-x-1/2 flex flex-col items-center gap-1"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1"
           aria-hidden="true"
         >
           <motion.div

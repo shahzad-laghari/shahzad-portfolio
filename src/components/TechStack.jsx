@@ -25,7 +25,7 @@ function TechCard({ tech, variant = 'core' }) {
     <motion.div
       variants={cardVariants}
       whileHover={{ y: -5, transition: { duration: 0.2 } }}
-      className="group relative bg-elevated border border-white/[0.07] rounded-2xl py-7 px-4 text-center overflow-hidden transition-colors duration-300 cursor-default"
+      className="group relative bg-elevated border border-white/[0.07] rounded-2xl py-5 sm:py-7 px-3 sm:px-4 text-center overflow-hidden transition-colors duration-300 cursor-default"
     >
       {/* Top accent line — reveals on hover, color encodes category */}
       <div
@@ -149,7 +149,7 @@ export default function TechStack() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.15 }}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4"
         >
           {coreStack.map((t) => (
             <TechCard key={t.key} tech={t} />
@@ -163,7 +163,7 @@ export default function TechStack() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.15 }}
-          className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-4 max-w-3xl mx-auto"
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 max-w-3xl mx-auto"
         >
           {frontendStack.map((t) => (
             <TechCard key={t.key} tech={t} variant="frontend" />

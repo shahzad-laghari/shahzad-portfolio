@@ -40,8 +40,8 @@ export default function Footer() {
         aria-hidden="true"
       />
 
-      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 py-12">
-        <div className="grid md:grid-cols-[1fr_auto_auto] gap-10 items-start mb-10">
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 py-10 sm:py-12">
+        <div className="grid sm:grid-cols-2 md:grid-cols-[1fr_auto_auto] gap-8 sm:gap-10 items-start mb-8 sm:mb-10">
 
           {/* Brand */}
           <div>

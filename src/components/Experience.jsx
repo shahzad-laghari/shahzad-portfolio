@@ -53,7 +53,7 @@ const education = [
   {
     degree: 'Bachelor of Science in Software Engineering',
     institution: 'University Of Sindh Jamshoro (Pakistan)',
-    period: '2021 – 2025',
+    period: '2022 – 2025',
     type: 'BS Software Engineering',
     location: 'Jamshoro, Pakistan',
     description: 'Comprehensive study of software engineering principles, system architecture, object-oriented design, database systems, and full-stack development.',
@@ -78,20 +78,20 @@ function TimelineCard({ item, index, isExperience = true }) {
       whileInView="show"
       viewport={{ once: true, amount: 0.15 }}
       custom={index}
-      className="relative pl-8 pb-10 last:pb-0"
+      className="relative pl-6 sm:pl-8 pb-8 sm:pb-10 last:pb-0"
     >
       {/* Timeline line */}
-      <div className="absolute left-[11px] top-8 bottom-0 w-px bg-white/[0.07]" aria-hidden="true" />
+      <div className="absolute left-[9px] sm:left-[11px] top-7 sm:top-8 bottom-0 w-px bg-white/[0.07]" aria-hidden="true" />
 
       {/* Timeline dot */}
       <div
-        className={`absolute left-0 top-1 w-6 h-6 rounded-full ${item.bgColor} border ${item.borderColor} flex items-center justify-center`}
+        className={`absolute left-0 top-1 w-5 h-5 sm:w-6 sm:h-6 rounded-full ${item.bgColor} border ${item.borderColor} flex items-center justify-center`}
       >
-        <Icon size={11} className={item.color} />
+        <Icon size={10} className={`${item.color} sm:w-[11px] sm:h-[11px]`} />
       </div>
 
       {/* Card */}
-      <div className={`bg-elevated border border-white/[0.07] rounded-2xl p-6 card-glow hover:border-white/[0.12] transition-all duration-300 relative overflow-hidden`}>
+      <div className={`bg-elevated border border-white/[0.07] rounded-2xl p-4 sm:p-6 card-glow hover:border-white/[0.12] transition-all duration-300 relative overflow-hidden`}>
         {/* Top accent bar */}
         <div
           className="absolute top-0 left-0 right-0 h-[1px]"
@@ -100,25 +100,25 @@ function TimelineCard({ item, index, isExperience = true }) {
         />
 
         {/* Header */}
-        <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
+        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 sm:gap-3 mb-3">
           <div>
-            <h3 className={`font-semibold text-[1rem] ${item.color} mb-0.5`}>
+            <h3 className={`font-semibold text-sm sm:text-[1rem] ${item.color} mb-0.5`}>
               {isExperience ? item.role : item.degree}
             </h3>
-            <p className="text-white/70 text-sm font-medium">
+            <p className="text-white/70 text-xs sm:text-sm font-medium">
               {isExperience ? item.company : item.institution}
             </p>
           </div>
-          <div className="flex flex-col items-end gap-1">
-            <span className={`font-mono text-[0.65rem] px-2.5 py-1 rounded-full ${item.bgColor} ${item.color} border ${item.borderColor}`}>
+          <div className="flex flex-row sm:flex-col items-center sm:items-end justify-between sm:justify-start gap-2 sm:gap-1 mt-1 sm:mt-0 flex-wrap">
+            <span className={`font-mono text-[0.62rem] sm:text-[0.65rem] px-2.5 py-0.5 sm:py-1 rounded-full ${item.bgColor} ${item.color} border ${item.borderColor}`}>
               {item.type}
             </span>
-            <div className="flex items-center gap-1 text-white/35 text-[0.7rem] font-mono">
+            <div className="flex items-center gap-1 text-white/35 text-[0.65rem] sm:text-[0.7rem] font-mono">
               <Calendar size={10} />
               {item.period}
             </div>
             {item.location && (
-              <div className="flex items-center gap-1 text-white/35 text-[0.7rem] font-mono">
+              <div className="flex items-center gap-1 text-white/35 text-[0.65rem] sm:text-[0.7rem] font-mono">
                 <MapPin size={10} />
                 {item.location}
               </div>

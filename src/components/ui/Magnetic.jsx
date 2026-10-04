@@ -10,6 +10,11 @@ export default function Magnetic({ children, strength = 0.35, className = '' }) 
   const sy = useSpring(y, { stiffness: 220, damping: 16, mass: 0.4 })
 
   const onMove = (e) => {
+    if (
+      typeof window !== 'undefined' &&
+      (!window.matchMedia('(hover: hover) and (pointer: fine)').matches ||
+       window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+    ) return
     const r = ref.current.getBoundingClientRect()
     x.set((e.clientX - (r.left + r.width / 2)) * strength)
     y.set((e.clientY - (r.top + r.height / 2)) * strength)

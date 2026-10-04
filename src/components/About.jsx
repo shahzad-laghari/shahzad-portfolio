@@ -122,7 +122,7 @@ export default function About() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-[1fr_1fr] gap-12 items-start">
+        <div className="grid lg:grid-cols-[1fr_1fr] gap-8 lg:gap-12 items-start">
           {/* Left: Profile text + highlights */}
           <div>
             {/* Profile card */}
@@ -132,25 +132,25 @@ export default function About() {
               whileInView="show"
               viewport={{ once: true, amount: 0.2 }}
               custom={0}
-              className="flex gap-5 items-start mb-8 p-6 bg-elevated border border-white/[0.07] rounded-2xl relative overflow-hidden"
+              className="flex flex-col sm:flex-row gap-4 sm:gap-5 items-start mb-6 sm:mb-8 p-5 sm:p-6 bg-elevated border border-white/[0.07] rounded-2xl relative overflow-hidden"
             >
               <div
                 className="absolute top-0 left-0 right-0 h-[1px]"
                 style={{ background: 'linear-gradient(90deg, transparent, rgba(79,209,197,0.35), transparent)' }}
                 aria-hidden="true"
               />
-              <div className="w-14 h-14 rounded-2xl bg-accent/15 border border-accent/25 flex items-center justify-center flex-shrink-0">
-                <User size={24} className="text-accent" />
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-accent/15 border border-accent/25 flex items-center justify-center flex-shrink-0">
+                <User size={22} className="text-accent" />
               </div>
               <div>
-                <h3 className="text-white font-bold text-lg mb-1">Shahzad Ali</h3>
-                <p className="font-mono text-[0.72rem] text-accent mb-3 tracking-wide">Java Full-Stack Developer</p>
-                <p className="text-white/55 text-sm leading-relaxed">
+                <h3 className="text-white font-bold text-base sm:text-lg mb-0.5 sm:mb-1">Shahzad Ali</h3>
+                <p className="font-mono text-[0.7rem] sm:text-[0.72rem] text-accent mb-2.5 sm:mb-3 tracking-wide">Java Full-Stack Developer</p>
+                <p className="text-white/55 text-xs sm:text-sm leading-relaxed">
                   I build complete web applications — robust backend APIs with Java &amp; Spring Boot paired with
                   dynamic, responsive frontends using React.js and Angular. I'm driven by clean architecture,
                   secure authentication, and writing code that scales.
                 </p>
-                <div className="flex flex-wrap gap-2 mt-4">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-3.5 sm:mt-4">
                   {['Java 21', 'Spring Boot', 'React.js', 'Angular', 'MySQL', 'REST APIs'].map((tag) => (
                     <span key={tag} className="tag-chip">{tag}</span>
                   ))}
@@ -159,7 +159,7 @@ export default function About() {
             </motion.div>
 
             {/* Highlights grid */}
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
               {highlights.map(({ icon: Icon, title, desc, color, bg, border }, i) => (
                 <motion.div
                   key={title}
@@ -168,20 +168,20 @@ export default function About() {
                   whileInView="show"
                   viewport={{ once: true, amount: 0.2 }}
                   custom={i + 1}
-                  className={`p-5 bg-elevated border ${border} rounded-2xl group hover:border-opacity-50 transition-all duration-300 card-glow`}
+                  className={`p-4 sm:p-5 bg-elevated border ${border} rounded-2xl group hover:border-opacity-50 transition-all duration-300 card-glow`}
                 >
-                  <div className={`w-10 h-10 rounded-xl ${bg} border ${border} flex items-center justify-center mb-3`}>
+                  <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl ${bg} border ${border} flex items-center justify-center mb-2.5 sm:mb-3`}>
                     <Icon size={18} className={color} />
                   </div>
-                  <h4 className={`font-semibold text-[0.9rem] ${color} mb-1.5`}>{title}</h4>
-                  <p className="text-white/50 text-xs leading-relaxed">{desc}</p>
+                  <h4 className={`font-semibold text-xs sm:text-[0.9rem] ${color} mb-1 sm:mb-1.5`}>{title}</h4>
+                  <p className="text-white/50 text-[0.75rem] sm:text-xs leading-relaxed">{desc}</p>
                 </motion.div>
               ))}
             </div>
           </div>
 
           {/* Right: Skill bars + quick facts */}
-          <div>
+          <div className="mt-4 lg:mt-0">
             {/* Skill bars */}
             <motion.div
               variants={fadeUp}
@@ -189,18 +189,18 @@ export default function About() {
               whileInView="show"
               viewport={{ once: true, amount: 0.2 }}
               custom={0}
-              className="bg-elevated border border-white/[0.07] rounded-2xl p-7 mb-6 relative overflow-hidden"
+              className="bg-elevated border border-white/[0.07] rounded-2xl p-5 sm:p-7 mb-4 sm:mb-6 relative overflow-hidden"
             >
               <div
                 className="absolute top-0 left-0 right-0 h-[1px]"
                 style={{ background: 'linear-gradient(90deg, transparent, rgba(245,166,35,0.35), transparent)' }}
                 aria-hidden="true"
               />
-              <div className="flex items-center gap-2 mb-6">
+              <div className="flex items-center gap-2 mb-5 sm:mb-6">
                 <Star size={16} className="text-accent2" />
                 <h3 className="text-white font-semibold text-sm">Core Proficiency</h3>
               </div>
-              <div className="space-y-5">
+              <div className="space-y-4 sm:space-y-5">
                 {skills.map((s, i) => (
                   <SkillBar key={s.name} {...s} index={i} />
                 ))}
@@ -214,7 +214,7 @@ export default function About() {
               whileInView="show"
               viewport={{ once: true, amount: 0.2 }}
               custom={1}
-              className="grid grid-cols-2 gap-4"
+              className="grid grid-cols-2 gap-3 sm:gap-4"
             >
               {[
                 { icon: Code2, label: 'Full-Stack Projects', value: '6+', color: 'text-accent' },
@@ -222,10 +222,10 @@ export default function About() {
                 { icon: Cpu, label: 'Years Experience', value: '1+', color: 'text-[#61DAFB]' },
                 { icon: Globe, label: 'Technologies', value: '20+', color: 'text-[#77bc1f]' },
               ].map(({ icon: Icon, label, value, color }) => (
-                <div key={label} className="bg-elevated border border-white/[0.07] rounded-2xl p-5 text-center group hover:-translate-y-0.5 transition-transform duration-200">
-                  <Icon size={20} className={`${color} mx-auto mb-2`} />
-                  <div className={`font-display font-bold text-2xl ${color} mb-1`}>{value}</div>
-                  <div className="font-mono text-[0.65rem] uppercase tracking-wider text-white/35">{label}</div>
+                <div key={label} className="bg-elevated border border-white/[0.07] rounded-2xl p-3.5 sm:p-5 text-center group hover:-translate-y-0.5 transition-transform duration-200">
+                  <Icon size={18} className={`${color} mx-auto mb-1.5 sm:mb-2`} />
+                  <div className={`font-display font-bold text-xl sm:text-2xl ${color} mb-0.5 sm:mb-1`}>{value}</div>
+                  <div className="font-mono text-[0.6rem] sm:text-[0.65rem] uppercase tracking-wider text-white/35 leading-tight">{label}</div>
                 </div>
               ))}
             </motion.div>

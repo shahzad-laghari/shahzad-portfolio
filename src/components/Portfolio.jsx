@@ -207,7 +207,7 @@ function ProjectModal({ project, onClose }) {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.25 }}
       onClick={onClose}
-      className="fixed inset-0 z-[100] bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6"
+      className="fixed inset-0 z-[100] bg-black/85 backdrop-blur-md flex items-center justify-center p-2.5 sm:p-4 md:p-6"
       role="dialog"
       aria-modal="true"
       aria-label={project.title}
@@ -218,19 +218,19 @@ function ProjectModal({ project, onClose }) {
         exit={{ opacity: 0, y: 24, scale: 0.97 }}
         transition={{ duration: 0.4, ease: EASE }}
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-6xl max-h-[92vh] overflow-y-auto lg:overflow-hidden bg-elevated border border-white/10 rounded-3xl shadow-[0_30px_100px_rgba(0,0,0,0.7)] grid lg:grid-cols-[1.35fr_1fr]"
+        className="relative w-full max-w-6xl max-h-[92vh] overflow-y-auto lg:overflow-hidden bg-elevated border border-white/10 rounded-2xl sm:rounded-3xl shadow-[0_30px_100px_rgba(0,0,0,0.7)] grid lg:grid-cols-[1.35fr_1fr]"
       >
         <button
           onClick={onClose}
           aria-label="Close project details"
-          className="absolute top-3 right-3 z-20 w-10 h-10 rounded-full bg-black/60 hover:bg-black/80 border border-white/10 flex items-center justify-center text-white transition-colors"
+          className="absolute top-3 right-3 z-30 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-black/75 hover:bg-black/90 border border-white/20 flex items-center justify-center text-white transition-colors"
         >
-          <X size={18} />
+          <X size={17} />
         </button>
 
         {/* Gallery */}
         <div className="bg-bg/80 p-3 sm:p-5 flex flex-col justify-center gap-3 lg:max-h-[92vh]">
-          <div className="relative rounded-2xl overflow-hidden border border-white/[0.08] bg-elevated2 aspect-[16/9]">
+          <div className="relative rounded-xl sm:rounded-2xl overflow-hidden border border-white/[0.08] bg-elevated2 aspect-[16/9]">
             <AnimatePresence mode="wait">
               <motion.img
                 key={i}
@@ -248,18 +248,18 @@ function ProjectModal({ project, onClose }) {
                 <button
                   onClick={prev}
                   aria-label="Previous screenshot"
-                  className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 backdrop-blur-sm hover:bg-accent hover:text-bg text-white flex items-center justify-center transition-colors"
+                  className="absolute left-2.5 sm:left-3 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/60 backdrop-blur-sm hover:bg-accent hover:text-bg text-white flex items-center justify-center transition-colors"
                 >
-                  <ChevronLeft size={18} />
+                  <ChevronLeft size={16} />
                 </button>
                 <button
                   onClick={next}
                   aria-label="Next screenshot"
-                  className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 backdrop-blur-sm hover:bg-accent hover:text-bg text-white flex items-center justify-center transition-colors"
+                  className="absolute right-2.5 sm:right-3 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/60 backdrop-blur-sm hover:bg-accent hover:text-bg text-white flex items-center justify-center transition-colors"
                 >
-                  <ChevronRight size={18} />
+                  <ChevronRight size={16} />
                 </button>
-                <span className="absolute bottom-3 left-3 font-mono text-[0.7rem] text-white/80 bg-black/55 backdrop-blur-sm px-2.5 py-1 rounded-md">
+                <span className="absolute bottom-2.5 left-2.5 sm:bottom-3 sm:left-3 font-mono text-[0.65rem] sm:text-[0.7rem] text-white/80 bg-black/55 backdrop-blur-sm px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md">
                   {i + 1} / {images.length}
                 </span>
               </>
@@ -273,7 +273,7 @@ function ProjectModal({ project, onClose }) {
                   key={src}
                   onClick={() => setI(idx)}
                   aria-label={`Show screenshot ${idx + 1}`}
-                  className={`relative flex-shrink-0 w-24 aspect-[16/9] rounded-lg overflow-hidden border transition-all duration-200 ${
+                  className={`relative flex-shrink-0 w-20 sm:w-24 aspect-[16/9] rounded-lg overflow-hidden border transition-all duration-200 ${
                     idx === i ? 'border-accent ring-2 ring-accent/30' : 'border-white/10 opacity-55 hover:opacity-100'
                   }`}
                 >
@@ -285,24 +285,24 @@ function ProjectModal({ project, onClose }) {
         </div>
 
         {/* Details */}
-        <div className="p-6 sm:p-8 lg:overflow-y-auto lg:max-h-[92vh]">
-          <span className="inline-flex font-mono text-[0.68rem] px-2.5 py-1 rounded-full bg-accent/15 text-accent border border-accent/25 mb-4">
+        <div className="p-4 sm:p-6 lg:p-8 lg:overflow-y-auto lg:max-h-[92vh]">
+          <span className="inline-flex font-mono text-[0.68rem] px-2.5 py-1 rounded-full bg-accent/15 text-accent border border-accent/25 mb-3 sm:mb-4">
             {project.tag}
           </span>
-          <h3 className="font-display font-bold text-white text-xl sm:text-2xl leading-snug mb-3 pr-8">
+          <h3 className="font-display font-bold text-white text-lg sm:text-2xl leading-snug mb-2.5 sm:mb-3 pr-6 sm:pr-8">
             {project.title}
           </h3>
-          <p className="text-white/55 text-sm leading-relaxed mb-6">{project.description}</p>
+          <p className="text-white/55 text-xs sm:text-sm leading-relaxed mb-5 sm:mb-6">{project.description}</p>
 
-          <p className="font-mono text-[0.68rem] uppercase tracking-widest text-white/30 mb-3">Key Features</p>
-          <ul className="space-y-2.5 mb-6">
+          <p className="font-mono text-[0.65rem] sm:text-[0.68rem] uppercase tracking-widest text-white/30 mb-2.5 sm:mb-3">Key Features</p>
+          <ul className="space-y-2 mb-5 sm:mb-6">
             {project.features.map((f, idx) => (
               <motion.li
                 key={idx}
                 initial={{ opacity: 0, x: 12 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.15 + idx * 0.05, duration: 0.35 }}
-                className="flex gap-2.5 text-[0.83rem] text-white/60 leading-relaxed"
+                className="flex gap-2.5 text-[0.78rem] sm:text-[0.83rem] text-white/60 leading-relaxed"
               >
                 <span className="text-accent mt-0.5 flex-shrink-0">▸</span>
                 <span>{f}</span>
@@ -310,24 +310,24 @@ function ProjectModal({ project, onClose }) {
             ))}
           </ul>
 
-          <p className="font-mono text-[0.68rem] uppercase tracking-widest text-white/30 mb-3">Tech Stack</p>
-          <div className="flex flex-wrap gap-1.5 mb-7">
+          <p className="font-mono text-[0.65rem] sm:text-[0.68rem] uppercase tracking-widest text-white/30 mb-2.5 sm:mb-3">Tech Stack</p>
+          <div className="flex flex-wrap gap-1.5 mb-6 sm:mb-7">
             {project.stack.map((s) => (
-              <span key={s} className="font-mono text-[0.7rem] text-accent2 bg-accent2/10 border border-accent2/15 px-2.5 py-1 rounded-md">
+              <span key={s} className="font-mono text-[0.65rem] sm:text-[0.7rem] text-accent2 bg-accent2/10 border border-accent2/15 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md">
                 {s}
               </span>
             ))}
           </div>
 
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-2.5 sm:gap-3">
             {project.codeHref && (
               <a
                 href={project.codeHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-accent text-bg font-semibold text-sm hover:brightness-110 hover:-translate-y-0.5 transition-all shadow-glow-accent"
+                className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-accent text-bg font-semibold text-xs sm:text-sm hover:brightness-110 hover:-translate-y-0.5 transition-all shadow-glow-accent"
               >
-                <Github size={15} /> View Code
+                <Github size={14} /> View Code
               </a>
             )}
             {project.liveHref && (
@@ -335,9 +335,9 @@ function ProjectModal({ project, onClose }) {
                 href={project.liveHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-white/15 bg-elevated2 text-white font-semibold text-sm hover:border-accent2/60 hover:-translate-y-0.5 transition-all"
+                className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl border border-white/15 bg-elevated2 text-white font-semibold text-xs sm:text-sm hover:border-accent2/60 hover:-translate-y-0.5 transition-all"
               >
-                <ExternalLink size={15} className="text-accent2" /> Live Demo
+                <ExternalLink size={14} className="text-accent2" /> Live Demo
               </a>
             )}
           </div>
